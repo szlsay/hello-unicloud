@@ -4,9 +4,14 @@
 		<view class="text-area">
 			<text class="title">{{title}}</text>
 		</view> -->
-		<view v-for="item in users" :key="item._id">
+		<!-- 	<view v-for="item in users" :key="item._id">
 			<view>姓名：{{ item.name }}</view>
-		</view>
+		</view> -->
+		<form @submit="onSubmit">
+			<input type="text" name="name">
+			<input type="number" name="age">
+			<button form-type="submit">提交</button>
+		</form>
 	</view>
 </template>
 
@@ -23,6 +28,19 @@
 			// this.loadUser()
 		},
 		methods: {
+			onSubmit(event) {
+				let data = event.detail.value
+				console.log("提交数据：", data);
+				this.postUser(data)
+			},
+			postUser(data) {
+				uniCloud.callFunction({
+					name: "user",
+					data: data
+				}).then(res => {
+					console.log(res);
+				})
+			},
 			loadHello() {
 				uniCloud.callFunction({
 					name: "hello",
