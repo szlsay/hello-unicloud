@@ -1,8 +1,11 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
+		<!-- 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
 			<text class="title">{{title}}</text>
+		</view> -->
+		<view v-for="item in users" :key="item._id">
+			<view>姓名：{{ item.name }}</view>
 		</view>
 	</view>
 </template>
@@ -11,20 +14,33 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				users: []
 			}
 		},
 		onLoad() {
-			uniCloud.callFunction({
-				name: "hello",
-				data: {
-					num: "3"
-				}
-			}).then(res => {
-				console.log(res);
-			})
+			// this.loadHello()
+			// this.loadUser()
 		},
 		methods: {
+			loadHello() {
+				uniCloud.callFunction({
+					name: "hello",
+					data: {
+						num: "3"
+					}
+				}).then(res => {
+					console.log(res);
+				})
+			},
+			loadUser() {
+				uniCloud.callFunction({
+					name: "user"
+				}).then(res => {
+					console.log(res)
+					this.users = res.result.data
+				})
+			}
 
 		}
 	}
