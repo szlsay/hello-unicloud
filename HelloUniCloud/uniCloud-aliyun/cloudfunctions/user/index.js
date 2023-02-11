@@ -8,6 +8,11 @@ exports.main = async (event, context) => {
 
 	//返回数据给客户端
 	// 获取 `user` 集合的引用
-	let res = await db.collection('user').get();
+	// let res = await db.collection('user').get();
+	// let res = await db.collection('user').count();
+	let res = await db.collection('user').add({
+		"name": "st2",
+		"age": 13
+	});
 	return res
 };
