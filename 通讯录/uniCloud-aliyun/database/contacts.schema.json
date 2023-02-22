@@ -3,13 +3,15 @@
 	"required": [],
 	"permission": {
 		"read": true,
-		"create": false,
-		"update": false,
-		"delete": false
+		"create": true,
+		"update": true,
+		"delete": true
 	},
 	"properties": {
 		"_id": {
 			"description": "ID，系统自动生成"
-		}
+		},
+		"name": {},
+		"phone": {}
 	}
 }
