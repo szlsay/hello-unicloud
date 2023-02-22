@@ -10,11 +10,7 @@
      	{
      		"launchtype" : "local"
      	},
-     	"type" : "uniCloud",
-     	"uniapp" : 
-     	{
-     		"launchtype" : "local"
-     	}
+     	"type" : "uniCloud"
      }
     ]
 }
