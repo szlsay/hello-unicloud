@@ -1,5 +1,5 @@
 {
-  "name": "user",
+  "name": "queryUser",
   "dependencies": {},
   "extensions": {
     "uni-cloud-jql": {}
