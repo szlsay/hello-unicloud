@@ -17,7 +17,7 @@ const validator = {
   "gender": {
     "rules": [
       {
-        "format": "int"
+        "format": "array"
       },
       {
         "range": [
@@ -37,14 +37,11 @@ const validator = {
       }
     ],
     "title": "性别",
-    "defaultValue": 0,
+    "defaultValue": 2,
     "label": "性别"
   },
   "mobile": {
     "rules": [
-      {
-        "required": true
-      },
       {
         "format": "string"
       },
@@ -75,15 +72,42 @@ const validator = {
     ],
     "title": "备注",
     "label": "备注"
+  },
+  "nation_china": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "title": "民族",
+    "label": "民族"
+  },
+  "address": {
+    "rules": [
+      {
+        "format": "string"
+      }
+    ],
+    "title": "地址",
+    "label": "地址"
   }
 }
 
 const enumConverter = {
-  "gender_valuetotext": {
-    "0": "未知",
-    "1": "男",
-    "2": "女"
-  }
+  "gender_valuetotext": [
+    {
+      "text": "未知",
+      "value": 0
+    },
+    {
+      "text": "男",
+      "value": 1
+    },
+    {
+      "text": "女",
+      "value": 2
+    }
+  ]
 }
 
 function filterToWhere(filter, command) {

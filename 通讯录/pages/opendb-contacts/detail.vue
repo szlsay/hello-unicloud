@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <unicloud-db ref="udb" v-slot:default="{data, loading, error, options}" :options="options" :collection="collectionList" field="username,gender,mobile,email,comment" :where="queryWhere" :getone="true" :manual="true">
+    <unicloud-db ref="udb" v-slot:default="{data, loading, error, options}" :options="options" :collection="collectionList" field="username,gender,mobile,email,comment,nation_china{name as text},address{name as text}" :where="queryWhere" :getone="true" :manual="true">
       <view v-if="error">{{error.message}}</view>
       <view v-else-if="loading">
         <uni-load-more :contentText="loadMore" status="loading"></uni-load-more>
@@ -12,7 +12,7 @@
         </view>
         <view>
           <text>性别</text>
-          <text>{{options.gender_valuetotext[data.gender]}}</text>
+          <uni-data-picker :localdata="options.gender_valuetotext" :value="data.gender" :multiple="false" :readonly="true" :arrow="false" split=","></uni-data-picker>
         </view>
         <view>
           <text>电话</text>
@@ -25,6 +25,14 @@
         <view>
           <text>备注</text>
           <text>{{data.comment}}</text>
+        </view>
+        <view>
+          <text>民族</text>
+          <text>{{data.nation_china && data.nation_china[0] && data.nation_china[0].text}}</text>
+        </view>
+        <view>
+          <text>地址</text>
+          <text>{{data.address && data.address[0] && data.address[0].text}}</text>
         </view>
       </view>
     </unicloud-db>

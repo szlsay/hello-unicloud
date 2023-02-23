@@ -6,7 +6,7 @@
 		"update": true,
 		"delete": true
 	},
-	"required": ["username", "mobile"],
+	"required": ["username"],
 	"properties": {
 		"_id": {
 			"description": "存储文档 ID（用户 ID），系统自动生成"
@@ -19,11 +19,11 @@
 			"trim": "both"
 		},
 		"gender": {
-			"bsonType": "int",
+			"bsonType": "array",
 			"title": "性别",
 			"description": "用户性别：0 未知 1 男性 2 女性",
 			"order": 2,
-			"defaultValue": 0,
+			"defaultValue": 2,
 			"enum": [{
 				"text": "未知",
 				"value": 0
@@ -33,7 +33,30 @@
 			}, {
 				"text": "女",
 				"value": 2
-			}]
+			}],
+			"componentForEdit": {
+				"name": "uni-data-checkbox",
+				"props": {
+					"multiple": false
+				}
+			}
+		},
+		"nation_china": {
+			"bsonType": "string",
+			"title": "民族",
+			"enum": {
+				"collection": "opendb-nation-china",
+				"field": "name as text, _id as value"
+			}
+		},
+		"address": {
+			"bsonType": "string",
+			"title": "地址",
+			"enum": {
+				"collection": "opendb-city-china",
+				"field": "name as text, code as value"
+			},
+			"enumType": "tree"
 		},
 		"mobile": {
 			"bsonType": "string",
