@@ -73,7 +73,7 @@ const validator = {
     "title": "备注",
     "label": "备注"
   },
-  "nation_china": {
+  "nation": {
     "rules": [
       {
         "format": "string"
@@ -82,7 +82,7 @@ const validator = {
     "title": "民族",
     "label": "民族"
   },
-  "address": {
+  "addressCity": {
     "rules": [
       {
         "format": "string"

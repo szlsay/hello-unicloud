@@ -41,20 +41,21 @@
 				}
 			}
 		},
-		"nation_china": {
+		"nation": {
 			"bsonType": "string",
 			"title": "民族",
 			"enum": {
 				"collection": "opendb-nation-china",
-				"field": "name as text, _id as value"
-			}
+				"field": "_id as value, name as text"
+			},
+			"foreignKey": "opendb-nation-china._id"
 		},
-		"address": {
+		"addressCity": {
 			"bsonType": "string",
 			"title": "地址",
 			"enum": {
 				"collection": "opendb-city-china",
-				"field": "name as text, code as value"
+				"field": "code as value, name as text"
 			},
 			"enumType": "tree"
 		},

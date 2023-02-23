@@ -16,11 +16,11 @@
       <uni-forms-item name="comment" label="备注">
         <textarea placeholder="备注" @input="binddata('comment', $event.detail.value)" class="uni-textarea-border" v-model="formData.comment" trim="both"></textarea>
       </uni-forms-item>
-      <uni-forms-item name="nation_china" label="民族">
-        <uni-data-picker v-model="formData.nation_china" collection="opendb-nation-china" field="name as text, _id as value"></uni-data-picker>
+      <uni-forms-item name="nation" label="民族">
+        <uni-data-picker v-model="formData.nation" collection="opendb-nation-china" field="_id as value, name as text"></uni-data-picker>
       </uni-forms-item>
-      <uni-forms-item name="address" label="地址">
-        <uni-data-picker self-field="code" parent-field="parent_code" v-model="formData.address" collection="opendb-city-china" field="name as text, code as value"></uni-data-picker>
+      <uni-forms-item name="addressCity" label="地址">
+        <uni-data-picker self-field="code" parent-field="parent_code" v-model="formData.addressCity" collection="opendb-city-china" field="code as value, name as text"></uni-data-picker>
       </uni-forms-item>
       <view class="uni-button-group">
         <button type="primary" class="uni-button" @click="submit">提交</button>
@@ -55,8 +55,8 @@
         "mobile": "",
         "email": "",
         "comment": "",
-        "nation_china": "",
-        "address": ""
+        "nation": "",
+        "addressCity": ""
       }
       return {
         formData,

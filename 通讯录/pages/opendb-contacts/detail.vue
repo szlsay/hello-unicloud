@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <unicloud-db ref="udb" v-slot:default="{data, loading, error, options}" :options="options" :collection="collectionList" field="username,gender,mobile,email,comment,nation_china{name as text},address{name as text}" :where="queryWhere" :getone="true" :manual="true">
+    <unicloud-db ref="udb" v-slot:default="{data, loading, error, options}" :options="options" :collection="collectionList" :getone="true" :manual="true">
       <view v-if="error">{{error.message}}</view>
       <view v-else-if="loading">
         <uni-load-more :contentText="loadMore" status="loading"></uni-load-more>
@@ -28,11 +28,11 @@
         </view>
         <view>
           <text>民族</text>
-          <text>{{data.nation_china && data.nation_china[0] && data.nation_china[0].text}}</text>
+          <text>{{data.nation && data.nation[0] && data.nation[0].text}}</text>
         </view>
         <view>
           <text>地址</text>
-          <text>{{data.address && data.address[0] && data.address[0].text}}</text>
+          <text>{{data.addressCity && data.addressCity[0] && data.addressCity[0].text}}</text>
         </view>
       </view>
     </unicloud-db>
@@ -52,7 +52,7 @@
     data() {
       return {
         queryWhere: '',
-        collectionList: "opendb-contacts",
+        collectionList: [ db.collection('opendb-contacts').field('username,gender,mobile,email,comment,nation,addressCity').getTemp(),db.collection('opendb-nation-china').field('_id, name as text').getTemp() ],
         loadMore: {
           contentdown: '',
           contentrefresh: '',
@@ -69,7 +69,7 @@
     },
     onReady() {
       if (this._id) {
-        this.queryWhere = '_id=="' + this._id + '"'
+        this.collectionList = [ db.collection('opendb-contacts').where('_id=="' + this._id + '"').field('username,gender,mobile,email,comment,nation,addressCity').getTemp(),db.collection('opendb-nation-china').field('_id, name as text').getTemp() ]
       }
     },
     methods: {
