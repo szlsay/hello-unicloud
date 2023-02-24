@@ -26,9 +26,10 @@ export default {
 		// "smsCode"
 
 		"smsCode",
-		// #ifdef APP-PLUS
 		"username",
-		// #endif
+		// // #ifdef APP-PLUS
+		// "username",
+		// // #endif
 	],
 	//政策协议
 	"agreements": {
