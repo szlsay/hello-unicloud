@@ -23,7 +23,8 @@
 			"bsonType": "string",
 			"forceDefaultValue": {
 				"$env": "uid"
-			}
+			},
+			"foreignKey": "uni-id-users._id"
 		}
 	}
 }

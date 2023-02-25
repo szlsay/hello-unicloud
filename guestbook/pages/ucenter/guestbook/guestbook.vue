@@ -1,7 +1,8 @@
 <template>
 	<view>
 		guestbook
-		<unicloud-db where="state == true" v-slot:default="{data, loading, error, options}" collection="guestbook">
+		<unicloud-db where="state == true" v-slot:default="{data, loading, error, options}"
+			collection="guestbook, uni-id-users" field="_id, text, state, user_id{nickname, avatar_file, _id}">
 			<view v-if="error">{{error.message}}</view>
 			<view v-else>
 				{{data}}
