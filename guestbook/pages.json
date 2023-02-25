@@ -109,8 +109,8 @@
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
-			},
-			"needLogin": true
+			}
+			// "needLogin": true
 
 		}
 	],
