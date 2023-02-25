@@ -154,6 +154,30 @@
         "navigationBarTitleText": "列表"
     }
 }
+,{
+    "path": "pages/opendb-banner/add",
+    "style": {
+        "navigationBarTitleText": "新增"
+    }
+}
+,{
+    "path": "pages/opendb-banner/edit",
+    "style": {
+        "navigationBarTitleText": "编辑"
+    }
+}
+,{
+    "path": "pages/opendb-banner/list",
+    "style": {
+        "navigationBarTitleText": "列表"
+    }
+}
+,{
+    "path": "pages/opendb-banner/detail",
+    "style": {
+        "navigationBarTitleText": "详情"
+    }
+}
 ],
 	"subPackages": [{
 			"root": "pages/system",
